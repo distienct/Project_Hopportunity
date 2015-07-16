@@ -1,0 +1,69 @@
+<div class="user-container">
+  <div class="user-info">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="user-name">
+          <h1><%= @user.full_name %><h1>
+        </div>
+        <div class="user-address">
+          <h3><%= @user.email %></h3>
+        </div>
+        <div class="user-options">
+         <%= button_to "Edit Information", edit_user_path(@user), method: :get %>
+        </div>
+      </div>
+      <div class="col-md-5 user-beer-stats">
+        <div class="user-checkins">
+          <h3>Total Checkins: <%= @user.checkins.count %></h3>
+        </div>
+        <div class="user-ratings">
+          <h3>Total Ratings: <%= @user.ratings.count %></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 recent-beers">
+        <h2>Recent Checkins</h2>
+        <div class="beer-list">
+          <% if @user.checkins.count % 4 == 3 %>
+            <% @user.checkins.each do |checkin| %>
+              <% id = checkin.beer_id %>
+              <div class="beer">
+                <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
+                <h4>On <%= formatted_date(checkin.created_at) %></h4>
+              </div>
+            <% end %>
+            <div class="beer"></div>
+          <% elsif @user.checkins.count % 4 == 1 %>
+            <% @user.checkins.each do |checkin| %>
+              <% id = checkin.beer_id %>
+              <div class="beer">
+                <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
+                <h4>On <%= formatted_date(checkin.created_at) %></h4>
+              </div>
+            <% end %>
+            <div class="beer"></div><div class="beer"></div><div class="beer"></div>
+          <% elsif @user.checkins.count % 4 == 2 %>
+             <% @user.checkins.each do |checkin| %>
+              <% id = checkin.beer_id %>
+              <div class="beer">
+                <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
+                <h4>On <%= formatted_date(checkin.created_at) %></h4>
+              </div>
+            <% end %>
+            <div class="beer"></div><div class="beer"></div>
+          <% else %>
+             <% @user.checkins.each do |checkin| %>
+              <% id = checkin.beer_id %>
+              <div class="beer">
+                <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
+                <h4>On <%= formatted_date(checkin.created_at) %></h4>
+              </div>
+            <% end %>
+          <% end %>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

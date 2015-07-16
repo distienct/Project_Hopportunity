@@ -1,0 +1,14 @@
+<% checkins_user = c.user.id %>
+
+<% if c.body && c.rating %>
+  <h3><%= User.find(checkins_user).full_name %> on <%=  formatted_date(c.created_at) %> </h3>
+  <p><%= c.body %></p>
+  <p><%= c.rating %></p>
+<% elsif c.body == "" && c.rating %>
+  <h3><%= User.find(checkins_user).full_name %> on <%=  formatted_date(c.created_at) %> </h3>
+  <h6><b><%= c.rating %>/5</b></h6>
+<% elsif c.body && c.rating == nil %>
+  <h3><%= User.find(checkins_user).full_name %> on <%=  formatted_date(c.created_at) %> </h3>
+  <p><%= c.body %></p>
+<% else %>
+<% end %>

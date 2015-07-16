@@ -1,0 +1,80 @@
+<div class="establishment-container">
+  <div class="establishment-info">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="establishment-name">
+          <h1><%= @establishment.name %><h1>
+        </div>
+        <div class="establishment-address">
+          <h3><%= @establishment.address %></h3>
+        </div>
+        <div class="establishment-site">
+          <h4>More Information: <%= link_to "Website", "http://#{@establishment.website}" %>
+        </div>
+      </div>
+      <div class="col-md-3 beers-available">
+        <div class="beer-selection">
+          <h4>Beers Available: <%= @establishment.select_beers.length %></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="row map">
+      <div id="map" style='width: 680px; height: 250px;'></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Currently Pouring:</h2>
+        <div class="beer-list">
+          <% if @establishment.select_beers.count % 4 == 3 %>
+            <% @establishment.select_beers.each do |beer| %>
+              <div class="beer">
+                <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+              </div>
+            <% end %>
+            <div class="beer"></div>
+          <% elsif @establishment.select_beers.count % 4 == 2 %>
+            <% @establishment.select_beers.each do |beer| %>
+              <div class="beer">
+                <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+              </div>
+            <% end %>
+            <div class="beer"></div><div class="beer"></div>
+          <% elsif @establishment.select_beers.count % 4 == 1 %>
+            <% @establishment.select_beers.each do |beer| %>
+              <div class="beer">
+                <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+              </div>
+            <% end %>
+            <div class="beer"></div><div class="beer"></div><div class="beer"></div>
+          <% else %>
+            <% @establishment.select_beers.each do |beer| %>
+              <div class="beer">
+                <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+              </div>
+            <% end %>
+          <% end %>         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers([
+        {
+          "lat": <%= @establishment.latitude %>,
+          "lng": <%= @establishment.longitude %>,
+          "infowindow": "<h3><%= @establishment.name %></h3>"
+        }
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  })
+
+</script>

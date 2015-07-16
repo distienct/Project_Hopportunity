@@ -1,0 +1,9 @@
+<div class="body">
+  <h1>BeerDex</h1>
+    <% @beers.each do |beer| %>
+      <div class="beer-large">
+        <h1><%= link_to beer.name, beer_path(beer) %> (<%= beer.category.name %>)</h1>
+        <h2><%= beer.brewery.name %></h2>
+      </div>
+    <% end %>
+</div>     

@@ -1,0 +1,273 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-color: #f9f3e7;
+}
+.navbar {
+  background-color: #fdc500;
+  width: 100%;
+}
+.header-text {
+  text-align: center;
+  height: 90px;
+  h5 {
+    color: #FFFFFF;
+    font-size: 35pt;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: Quicksand;
+    font-weight: 300;
+    text-shadow: 4px 4px 4px #aaa;
+  }
+  p {
+    color: #000000;
+    font-size: 16pt;
+    font-family: Lato;
+    font-weight: normal;
+    padding-top: 0px;
+    margin-top: -20px;
+  }
+}
+.header-text a:hover{
+  text-decoration: none;
+}
+.header-text a:active, a:visited {
+  color: #FFFFFF;
+
+}
+
+.header-link {
+  text-align: center;
+  padding-top: 35px;
+  padding-bottom: 0px;
+  left: 20px;
+  color: #FFFFFF;
+  display: inline-block;
+}
+
+.header-link a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14pt;
+  font-family: Lato;
+
+}
+/*user nav bar*/
+.user{
+  text-align: center;
+  font-size: 14pt;
+  font-family: Lato;
+  color: #FFFFFF;
+  background-color: #651c00;
+  width:100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: -20px;
+  height: 35px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.user a:active, a:visited, a:hover {
+  text-decoration: none;
+}
+.avatar {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+h1, h2, h3, h4 {
+  font-weight: normal;
+  font-family: Quicksand;
+}
+.main-body {
+  margin-top: 0px;
+  width: 100%;
+}
+.body {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 30px;
+  font-family: Lato;
+}
+
+/*Simple Form Styling*/
+.form-group label {
+  display: block;
+  font-size: 16pt;
+  font-family: Arial;
+  font-weight: lighter;
+  color: #651c00;
+  text-align: left;
+  margin-right: 10px;
+}
+
+.form-group input {
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: #ececec;
+  border: 1px solid #651c00;
+  border-radius: 10px;
+  width: 650px;
+  height: 40px;
+}
+
+.form-group textarea {
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: #ececec;
+  border: 1px solid #651c00;
+  border-radius: 10px;
+  width: 650px;
+  height: 120px;
+}
+
+#beer_category_id, #beer_brewery_id {
+  width: 650px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #651c00;
+  color: #FFFFFF;
+  font-weight: lighter;
+  font-size: 14pt;
+  text-transform: uppercase;
+}
+
+.form-control {
+  font-size: 14pt;
+  font-weight: lighter;
+  letter-spacing: 4px;
+  color: #999999;
+  background-color: #651c00;
+  border-radius: 10px;
+  border: 1px solid #fdc500;
+}
+
+#check_in_body {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.submit-button {
+  width: auto;
+  height: 40px;
+  margin-top: 15px;
+  margin-left: 5px;
+  padding-top: 0px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #651c00;
+  color: #FFFFFF;
+  font-size: 18pt;
+  font-weight: lighter;
+  text-align: center;
+  background-color: #fdc500;
+}
+
+/*Individual establishment tiles on the index page*/
+/*Individual beer tile on establishment show page*/
+
+.establishment, .beer {
+  text-align: center;
+  background-color: #fdd64c;
+  border: 1px solid #651c00;
+  padding: 10px;
+  a {
+    color: #FFFFFF;
+  }
+}
+.establishment {
+    height: 150px;
+}
+.establishment:hover, .beer:hover {
+  background-color: rgba(101, 28, 0, 0.75);
+  color: #FFFFFF;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+.beer {
+  width: 170px;
+  height: 160px;
+  float: left;
+}
+
+.establishment-container {
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  width: 700px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  .establishment-site a {
+    color: #651c00;
+    font-weight: bold;
+  }
+  .beer-selection {
+    height: 50px;
+    padding: 15px;
+  }
+}
+
+#map {
+  margin-left: 15px;
+  border: 1px solid #651c00;
+}
+
+.user-container {
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  width: 700px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  .user-beer-stats {
+    text-align: right;
+  }
+}
+
+.beer-large {
+  text-align: center;
+  float: left;
+  background-color: #fdd64c;
+  border: 1px solid #651c00;
+  padding: 10px;
+  width: 300px;
+  height: 300px;
+  a {
+    color: #FFFFFF;
+  }
+}
+.beer-large:hover {
+  background-color: rgba(101, 28, 0, 0.75);
+  color: #FFFFFF;
+  a {
+    font-weight: lighter;
+  }
+  a:hover {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+.beer-container {
+  margin: 0 auto;
+  width: 800px;
+}
+.beer-name h1, .establishment-name h1 {
+  font-size: 30pt;
+}
+.beer-description span {
+  font-style: italic;
+}
+
+.checkins, .ratings, .uniques, .user-checkins {
+  height: 75px;
+  padding: 10px;
+}

@@ -1,0 +1,7 @@
+<div class="body">
+  <h1><%= @category.name %></h1>
+  <ul>
+    <% @category.beers.each do |beer| %>
+      <li><%= link_to beer.name, beer_path(beer) %></li>
+    <% end %>
+</div>

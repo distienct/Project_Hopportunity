@@ -1,0 +1,7 @@
+<% @establishments.each do |establishment| %>
+	<div class="col-md-4 establishment">
+		<h1><%= link_to establishment.name, establishment_path(establishment) %></h1>
+		<%= establishment.address %> ,
+		<%= link_to "Website", "http://#{establishment.website}" %>
+	</div>
+<% end %>

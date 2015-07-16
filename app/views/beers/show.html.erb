@@ -1,0 +1,59 @@
+<div class="beer-container">
+  <div class="beer-info">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="beer-name">
+          <h1><%= @beer.name %><h1>
+        </div>
+        <div class="beer-category">
+          <h3><%= @beer.category.name %> from <%= @beer.brewery.name %></h3>
+        </div>
+        <div class="beer-description">
+          <h4>Description:
+            <span>"<%= @beer.description %>"</span>
+        </div>
+      </div>
+
+      <div class="col-md-2 checkins-and-ratings">
+        <div class="checkins">
+          <h4>Total: <%= @beer.checkins.length %></h4>
+        </div>
+        <div class="ratings">
+          <h4>Rating: 4/5</h4>
+        </div>
+      </div>
+      <div class="col-md-2 uniques-and-user-checkins">
+        <div class="uniques">
+          <h4>Uniques: 1000</h4>
+        </div>
+        <div class="user-checkins">
+          <h4>Yours: </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row beer-stats">
+    <div class="col-md-4 abv" style="text-align: center">
+      ABV: <%= number_to_percentage(@beer.abv, precision: 2) %>
+    </div>
+    <div class="col-md-4" style="text-align: center">
+      Your Rating: <%#= @beer.current_user %>
+    </div>
+    <div class="col-md-4" style="text-align: center">
+      something something
+    </div>
+  </div>
+
+  <div class="checkins">
+    <h3>Check In!</h3>
+      <%#= render "/checkins/form" %>
+
+    <div class="ratings">
+      <h2>Ratings</h2>
+      <%# @beer.check_ins.each do |c| %>
+        <%#= render "/checkins/checkin", c: c %>
+      <%# end %>
+    </div>
+  </div>
+</div>
