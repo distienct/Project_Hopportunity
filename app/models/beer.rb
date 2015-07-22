@@ -24,4 +24,11 @@ class Beer < ActiveRecord::Base
     Checkin.where("beer_id = ? AND user_id = ?", self, user).length
   end
 
+  def self.search(search)
+    if search
+      Beer.where("lower(name) ILIKE ? OR lower(description) ILIKE ?", "%#{search}%", "%#{search}%")
+    else
+      @beers = Beer.all.order('name ASC')
+    end
+  end
 end

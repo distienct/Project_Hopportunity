@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :random_establishment
+  before_action :find_beers
 
   protect_from_forgery with: :exception
 
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::Base
 
   def random_establishment
     @estblishment_random = Establishment.all.sample
+  end
+
+  def find_beers
+    @beers = Beer.all
   end
 end

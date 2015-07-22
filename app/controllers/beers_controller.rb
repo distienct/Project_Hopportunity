@@ -2,7 +2,7 @@ class BeersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @beers = Beer.all.order('name ASC')
+    @beers = Beer.search(params[:search])
   end
 
   def new
