@@ -1,0 +1,34 @@
+<% @beer.ratings.each do |r| %>
+  <div id ="<%= dom_id(r) %>">
+    <div class="row review-post">
+      <div class="col-md-2">
+        <% if r.user.avatar.present? %>
+          <%= image_tag comment.user.avatar.url(:square_thumb), :class => "img-circle" %>
+        <% else %>
+          <%= image_tag ("beer.png"), :class => "avatar" %>
+        <% end %>
+          <div class="breaker"></div>
+        <%= r.user.full_name %>
+      </div>
+
+      <div class="col-md-1 numerical-rating">
+        <h3><%= r.rating %></h3>
+      </div>
+
+      <div class="col-md-9">
+        <div id="review-body">
+          <h4><%= r.body %></h4>
+          Last updated: <%= formatted_date(r.updated_at) %>
+            <div class="breaker"></div>
+
+            <% if can?(:delete, r) %>
+              <div id="deletion">
+                <%= link_to ">> Remove Rating", beer_rating_path(@beer, r), method: :delete, data: {confirm: "Are you sure?"} %>
+              </div>
+            <% end %>
+            <div class="breaker"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

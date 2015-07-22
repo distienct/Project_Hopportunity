@@ -1,7 +1,7 @@
 categories = ["Ale", "Lager", "Stout", "Porter", "Malt", "Amber", "Blonde", "Brown", "Cream", "Dark", "Fruit", "Golden", "Honey","IPA", "Light","Lime","Pale","Pilsner","Red","Strong","Wheat"]
 
 categories.each do |c|
-	Category.create(name: c)
+  Category.create(name: c)
 end
 
 breweries = [

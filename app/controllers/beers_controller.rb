@@ -20,6 +20,8 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
+    @checkin = Checkin.new
+    @rating = Rating.new
   end
 
   def edit

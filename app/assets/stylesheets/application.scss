@@ -150,23 +150,6 @@ h1, h2, h3, h4 {
   border-radius: 5px;
 }
 
-.submit-button {
-  width: auto;
-  height: 40px;
-  margin-top: 15px;
-  margin-left: 5px;
-  padding-top: 0px;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  border-radius: 5px;
-  border: 1px solid #651c00;
-  color: #FFFFFF;
-  font-size: 18pt;
-  font-weight: lighter;
-  text-align: center;
-  background-color: #fdc500;
-}
-
 /*Individual establishment tiles on the index page*/
 /*Individual beer tile on establishment show page*/
 
@@ -264,8 +247,15 @@ h1, h2, h3, h4 {
   }
 }
 .beer-container {
+  background-color: #FFFFFF;
   margin: 0 auto;
-  width: 800px;
+  width: 720px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  .rating {
+    margin-left: -20px;
+  }
 }
 .beer-name h1, .establishment-name h1 {
   font-size: 30pt;
@@ -277,4 +267,24 @@ h1, h2, h3, h4 {
 .checkins, .ratings, .uniques, .user-checkins, .average-rating {
   height: 75px;
   padding: 10px;
+}
+
+.current-user-rating, .abv {
+  text-align: center;
+}
+
+.checkin-button, .submit-button {
+  margin-top: 15px;
+  border: 1px solid #651c00;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #fdd64c;
+  color: #FFFFFF;
+  font-family: Quicksand;
+  font-size: 16pt;
+  text-transform: uppercase;
+}
+
+.new_rating {
+  margin: 0px;
 }

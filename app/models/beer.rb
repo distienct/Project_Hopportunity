@@ -1,7 +1,7 @@
 class Beer < ActiveRecord::Base
   has_many :checkins, dependent: :destroy
   has_many :checked_in_users, through: :checkins, source: :user
-  has_many :ratings, dependent: :destroy
+  has_many :ratings
   has_many :rating_users, through: :ratings, source: :user
   has_many :selections, dependent: :destroy
   has_many :select_establishments, through: :selections, source: :establishment
@@ -17,7 +17,7 @@ class Beer < ActiveRecord::Base
   end
 
   def rating_by_user(user)
-    Rating.where("user_id = ? AND beer_id = ?", user, self).first.rating
+    Rating.where("user_id = ? AND beer_id = ?", user, self).first
   end
 
   def checkins_by_user(user)

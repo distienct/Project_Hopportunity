@@ -1,0 +1,13 @@
+<% if @rating.errors.any? %>
+  <ul>
+    <% @rating.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<%= simple_form_for [@beer, @rating] do |f| %>
+  <%= f.text_area :body, :size => "100x4", placeholder: "What did you think?" %>
+  <%= f.input :rating %>
+  <%= f.submit 'Add Review!', :class => "submit-button" %>
+<% end %>
