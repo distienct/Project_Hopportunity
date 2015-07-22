@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :beers do
     resources :checkins, only: [:create, :destroy]
+    resources :ratings, only: [:create, :destroy, :update, :edit]
   end
 
   resources :breweries

@@ -16,18 +16,18 @@
 
       <div class="col-md-2 checkins-and-ratings">
         <div class="checkins">
-          <h4>Total: <%= @beer.checkins.length %></h4>
+          <h4>Checkins: <%= @beer.checkins.length %></h4>
         </div>
         <div class="ratings">
-          <h4>Rating: 4/5</h4>
+          <h4>Ratings: <%= @beer.ratings.length %> </h4>
         </div>
       </div>
       <div class="col-md-2 uniques-and-user-checkins">
-        <div class="uniques">
-          <h4>Uniques: 1000</h4>
-        </div>
         <div class="user-checkins">
-          <h4>Yours: </h4>
+          <h4>Your Checkins: <%= @beer.checkins_by_user(current_user) %> </h4>
+        </div>
+        <div class="average-rating">
+          <h4>Average Rating: <%= @beer.average_rating %></h4>
         </div>
       </div>
     </div>
@@ -38,10 +38,9 @@
       ABV: <%= number_to_percentage(@beer.abv, precision: 2) %>
     </div>
     <div class="col-md-4" style="text-align: center">
-      Your Rating: <%#= @beer.current_user %>
+      Your Rating: <%= @beer.rating_by_user(current_user) %>
     </div>
     <div class="col-md-4" style="text-align: center">
-      something something
     </div>
   </div>
 

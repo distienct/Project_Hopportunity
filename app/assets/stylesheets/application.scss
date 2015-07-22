@@ -197,6 +197,13 @@ h1, h2, h3, h4 {
   width: 170px;
   height: 160px;
   float: left;
+  h3 {
+    margin: 5px;
+  }
+}
+
+.brewery {
+  vertical-align: bottom;  
 }
 
 .establishment-container {
@@ -239,7 +246,7 @@ h1, h2, h3, h4 {
   background-color: #fdd64c;
   border: 1px solid #651c00;
   padding: 10px;
-  width: 300px;
+  width: 355px;
   height: 300px;
   a {
     color: #FFFFFF;
@@ -267,7 +274,7 @@ h1, h2, h3, h4 {
   font-style: italic;
 }
 
-.checkins, .ratings, .uniques, .user-checkins {
+.checkins, .ratings, .uniques, .user-checkins, .average-rating {
   height: 75px;
   padding: 10px;
 }

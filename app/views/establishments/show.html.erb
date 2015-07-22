@@ -14,7 +14,12 @@
       </div>
       <div class="col-md-3 beers-available">
         <div class="beer-selection">
-          <h4>Beers Available: <%= @establishment.select_beers.length %></h4>
+          <h4>Beers Available: 
+            <% if @establishment.id == 10 %>
+              2
+            <% else %>
+              <%= @establishment.select_beers.length %>
+            <% end %> </h4>
         </div>
       </div>
     </div>
@@ -26,11 +31,18 @@
     <div class="row">
       <div class="col-md-12">
         <h2>Currently Pouring:</h2>
+        <% if @establishment.id == 10 %>
+          <div class="gringo-list">
+            <p> Gringo serves 2 mystery beers for $3.75 each.   They're local: 1 is a Pale and the other is a Lager.  What more do you need to know? </p>
+          </div>
+        <% end %>
         <div class="beer-list">
           <% if @establishment.select_beers.count % 4 == 3 %>
             <% @establishment.select_beers.each do |beer| %>
               <div class="beer">
                 <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+                <p> <% brewery_id = Beer.find(beer).brewery %>
+                    <%= brewery_id.name %></p>
               </div>
             <% end %>
             <div class="beer"></div>
@@ -38,6 +50,8 @@
             <% @establishment.select_beers.each do |beer| %>
               <div class="beer">
                 <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+                <p> <% brewery_id = Beer.find(beer).brewery %>
+                    <%= brewery_id.name %></p>
               </div>
             <% end %>
             <div class="beer"></div><div class="beer"></div>
@@ -45,6 +59,8 @@
             <% @establishment.select_beers.each do |beer| %>
               <div class="beer">
                 <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+                <p> <% brewery_id = Beer.find(beer).brewery %>
+                    <%= brewery_id.name %></p>
               </div>
             <% end %>
             <div class="beer"></div><div class="beer"></div><div class="beer"></div>
@@ -52,6 +68,10 @@
             <% @establishment.select_beers.each do |beer| %>
               <div class="beer">
                 <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+                <div class="brewery">
+                  <% brewery_id = Beer.find(beer).brewery %>
+                  <span><%= brewery_id.name %></span>
+                </div>
               </div>
             <% end %>
           <% end %>         
@@ -61,6 +81,9 @@
   </div>
 </div>
 
+<div class="checkin-button">
+  <% button_to "Check In!",  %>
+</div>
 <script>
   $(document).ready(function(){
     handler = Gmaps.build('Google');

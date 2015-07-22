@@ -31,6 +31,8 @@
               <% id = checkin.beer_id %>
               <div class="beer">
                 <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
+                <p> <% brewery_id = Beer.find(id).brewery %>
+                    <%= brewery_id.name %></p>
                 <h4>On <%= formatted_date(checkin.created_at) %></h4>
               </div>
             <% end %>
@@ -40,6 +42,8 @@
               <% id = checkin.beer_id %>
               <div class="beer">
                 <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
+                <p> <% brewery_id = Beer.find(id).brewery %>
+                    <%= brewery_id.name %></p>
                 <h4>On <%= formatted_date(checkin.created_at) %></h4>
               </div>
             <% end %>
@@ -49,6 +53,8 @@
               <% id = checkin.beer_id %>
               <div class="beer">
                 <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
+                <p> <% brewery_id = Beer.find(id).brewery %>
+                    <%= brewery_id.name %></p>
                 <h4>On <%= formatted_date(checkin.created_at) %></h4>
               </div>
             <% end %>
@@ -58,6 +64,8 @@
               <% id = checkin.beer_id %>
               <div class="beer">
                 <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
+                <p> <% brewery_id = Beer.find(id).brewery %>
+                    <%= brewery_id.name %></p>
                 <h4>On <%= formatted_date(checkin.created_at) %></h4>
               </div>
             <% end %>
