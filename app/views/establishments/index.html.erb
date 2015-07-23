@@ -1,4 +1,5 @@
-<div class="body">
+<div class="container">
+  <h1><%= @establishments.count %> Places nearby with beer!</h1>
 <% @establishments.each do |establishment| %>
 	<div class="col-md-4 establishment">
 		<h1><%= link_to establishment.name, establishment_path(establishment) %></h1>

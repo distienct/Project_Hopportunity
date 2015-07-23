@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-
+  resources :checkins
   resources :beers do
   resources :checkins
     resources :ratings, only: [:create, :destroy, :update, :edit]
