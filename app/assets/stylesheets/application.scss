@@ -75,6 +75,8 @@ body {
 
 #search {
   color: #000000;
+  height: 40px;
+  width: 320px;
 }
 
 .search-button {
@@ -96,7 +98,22 @@ h1, h2, h3, h4 {
   font-weight: normal;
   font-family: Quicksand;
 }
-.main-body {
+.front-page {
+  width:100%;
+  height: 1000px;
+  border:0px;
+  background-image: url("beerpour.gif");
+  h6 {
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 50px;
+    font-size: 80pt;
+    font-family: Quicksand;
+    color: #FFFFFF;
+}
+}
+
+ain-body {
   margin-top: 0px;
   width: 100%;
 }
@@ -302,4 +319,23 @@ h1, h2, h3, h4 {
 
 .new_rating {
   margin: 0px;
+}
+
+.consumptions {
+
+  margin-left: 200px;
+  h1 {
+    color: #651c00;
+    font-size: 50px;
+  }
+  h2 {
+    color: #000000;
+    font-size: 45px;
+  }
+  h3 {
+    color: #651c00;
+    font-size: 100px;
+    font-weight: bold;
+    display: inline;
+  }
 }

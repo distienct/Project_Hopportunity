@@ -26,8 +26,8 @@
       <div class="col-md-12 recent-beers">
         <h2>Recent Checkins</h2>
         <div class="beer-list">
-          <% if @user.checkins.count % 4 == 3 %>
-            <% @user.checkins.each do |checkin| %>
+          <% if @user.recent_eight_checkins.count % 4 == 3 %>
+            <% @user.recent_eight_checkins.each do |checkin| %>
               <% id = checkin.beer_id %>
               <div class="beer">
                 <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
@@ -37,8 +37,8 @@
               </div>
             <% end %>
             <div class="beer"></div>
-          <% elsif @user.checkins.count % 4 == 1 %>
-            <% @user.checkins.each do |checkin| %>
+          <% elsif @user.recent_eight_checkins.count % 4 == 1 %>
+            <% @user.recent_eight_checkins.each do |checkin| %>
               <% id = checkin.beer_id %>
               <div class="beer">
                 <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
@@ -48,8 +48,8 @@
               </div>
             <% end %>
             <div class="beer"></div><div class="beer"></div><div class="beer"></div>
-          <% elsif @user.checkins.count % 4 == 2 %>
-             <% @user.checkins.each do |checkin| %>
+          <% elsif @user.recent_eight_checkins.count % 4 == 2 %>
+             <% @user.recent_eight_checkins.each do |checkin| %>
               <% id = checkin.beer_id %>
               <div class="beer">
                 <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
@@ -60,7 +60,7 @@
             <% end %>
             <div class="beer"></div><div class="beer"></div>
           <% else %>
-             <% @user.checkins.each do |checkin| %>
+             <% @user.recent_eight_checkins.each do |checkin| %>
               <% id = checkin.beer_id %>
               <div class="beer">
                 <h3><%= link_to Beer.find(id).name, beer_path(id) %></h3>
@@ -71,6 +71,21 @@
             <% end %>
           <% end %>  
         </div>
+      </div>
+      <div class="col-md-12 recent-review">
+        <h2>Recent Reviews</h2>
+        <% if @user.ratings.count == 0 %>
+          <h3> No reviews yet! Check out some beers and start reviewing!</h3>
+        <% else %>
+          <% @user.recent_five_reviews.each do |review| %>
+            <% reviewed_beer = review.beer_id %>
+            <%= Beer.find(reviewed_beer).name %>
+            <%= review.rating %>
+            <%= review.body %>
+            <%= formatted_date(review.updated_at) %>
+            <hr>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

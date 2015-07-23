@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}".strip.squeeze(" ")
   end
+
+  def recent_eight_checkins
+    checkins.order("updated_at DESC").limit(8)
+  end
+
+  def recent_five_reviews
+    ratings.order("updated_at DESC").limit(5)
+  end
 end

@@ -17,6 +17,8 @@
           <h4>Beers Available: 
             <% if @establishment.id == 10 %>
               2
+            <% elsif @establishment.id == 46 %>
+              ???
             <% else %>
               <%= @establishment.select_beers.length %>
             <% end %> </h4>
@@ -35,47 +37,52 @@
           <div class="gringo-list">
             <p> Gringo serves 2 mystery beers for $3.75 each.   They're local: 1 is a Pale and the other is a Lager.  What more do you need to know? </p>
           </div>
-        <% end %>
-        <div class="beer-list">
-          <% if @establishment.select_beers.count % 4 == 3 %>
-            <% @establishment.select_beers.each do |beer| %>
-              <div class="beer">
-                <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
-                <p> <% brewery_id = Beer.find(beer).brewery %>
-                    <%= brewery_id.name %></p>
-              </div>
-            <% end %>
-            <div class="beer"></div>
-          <% elsif @establishment.select_beers.count % 4 == 2 %>
-            <% @establishment.select_beers.each do |beer| %>
-              <div class="beer">
-                <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
-                <p> <% brewery_id = Beer.find(beer).brewery %>
-                    <%= brewery_id.name %></p>
-              </div>
-            <% end %>
-            <div class="beer"></div><div class="beer"></div>
-          <% elsif @establishment.select_beers.count % 4 == 1 %>
-            <% @establishment.select_beers.each do |beer| %>
-              <div class="beer">
-                <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
-                <p> <% brewery_id = Beer.find(beer).brewery %>
-                    <%= brewery_id.name %></p>
-              </div>
-            <% end %>
-            <div class="beer"></div><div class="beer"></div><div class="beer"></div>
-          <% else %>
-            <% @establishment.select_beers.each do |beer| %>
-              <div class="beer">
-                <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
-                <div class="brewery">
-                  <% brewery_id = Beer.find(beer).brewery %>
-                  <span><%= brewery_id.name %></span>
+        <% elsif @establishment.id == 46 %>
+          <div class="codecore-list">
+            <h1>Don't be silly, CodeCore doesn't have <i>beer</i> on <strong>TAP!</strong></h1> <h4 style="text-align: right">...yet.</h4>
+          </div> 
+        <% else %>
+          <div class="beer-list">
+            <% if @establishment.select_beers.count % 4 == 3 %>
+              <% @establishment.select_beers.each do |beer| %>
+                <div class="beer">
+                  <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+                  <p> <% brewery_id = Beer.find(beer).brewery %>
+                      <%= brewery_id.name %></p>
                 </div>
-              </div>
-            <% end %>
-          <% end %>         
-        </div>
+              <% end %>
+              <div class="beer"></div>
+            <% elsif @establishment.select_beers.count % 4 == 2 %>
+              <% @establishment.select_beers.each do |beer| %>
+                <div class="beer">
+                  <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+                  <p> <% brewery_id = Beer.find(beer).brewery %>
+                      <%= brewery_id.name %></p>
+                </div>
+              <% end %>
+              <div class="beer"></div><div class="beer"></div>
+            <% elsif @establishment.select_beers.count % 4 == 1 %>
+              <% @establishment.select_beers.each do |beer| %>
+                <div class="beer">
+                  <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+                  <p> <% brewery_id = Beer.find(beer).brewery %>
+                      <%= brewery_id.name %></p>
+                </div>
+              <% end %>
+              <div class="beer"></div><div class="beer"></div><div class="beer"></div>
+            <% else %>
+              <% @establishment.select_beers.each do |beer| %>
+                <div class="beer">
+                  <h3><%= link_to Beer.find(beer).name, beer_path(beer) %></h3>
+                  <div class="brewery">
+                    <% brewery_id = Beer.find(beer).brewery %>
+                    <span><%= brewery_id.name %></span>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>         
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

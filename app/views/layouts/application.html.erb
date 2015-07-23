@@ -21,7 +21,7 @@
         <p class="slogan">where it's always beer o'clock.</p>
       </div>
       <div class="col-md-2 header-link">
-        <%= link_to "BEERS", beers_path %>
+        <%= link_to "BEERS", new_beer_path %>
       </div>
       <div class="col-md-2 header-link">
         <%= link_to "BROWSE GASTOWN", establishments_path %>
@@ -45,7 +45,14 @@
 
       <div class="col-md-4 user-links">
         <% if session[:user_id] %>
-          Hey <%= current_user.full_name %> :::
+          Hey <%= current_user.full_name %> 
+
+          <% if current_user.avatar.present? %>
+          <%= image_tag current_user.avatar.url(:square_thumb), :class => "img-circle" %>
+        <% else %>
+          <%= image_tag ("beer.png"), :class => "avatar" %>
+        <% end %>
+
           <%= link_to "Profile", user_path(current_user) %> |
           <%= link_to "Logout", sessions_path, method: :delete, data: {confirm: "are you sure you want to log out?"}%>
         <% else %>
