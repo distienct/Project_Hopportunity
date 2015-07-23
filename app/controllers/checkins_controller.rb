@@ -18,6 +18,10 @@ class CheckinsController < ApplicationController
     end
   end
 
+  def index
+    @checkins = Checkin.all
+  end
+
   def destroy
     @beer = Beer.find params[:beer_id]
     respond_to do |format|

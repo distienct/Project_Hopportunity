@@ -46,15 +46,17 @@
     </div>
   </div>
 
-  <div class="checkins">
+  <div class="row checkins">
     <%= button_to "Check In!", beer_checkins_path(@beer), method: :post, :class => "checkin-button" %>
   </div>
-
-    <div class="ratings">
+    <div class="row ratings">
       <h2>Review</h2>
+    </div>
+    <div class="row">
       <%= render "ratings/form" %>
+    </div>
 
-      <div class="all-ratings">
-        <%= render "ratings/rating" %>
-      </div>
+    <%= render "ratings/rating" %>
+  </div>
+</div>
 
