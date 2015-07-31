@@ -231,7 +231,7 @@ main-body {
 }
 
 .brewery {
-  vertical-align: bottom;  
+  vertical-align: bottom;
 }
 
 .establishment-container {
@@ -385,4 +385,30 @@ main-body {
   width: 100%;
   padding: 0px;
   background-image: url('beermug.jpg');
+}
+
+.find-beers {
+  color: #000000;
+  text-align: left;
+  padding-bottom: 30px;
+  a {
+    color: #651c00;
+    padding-top: 20px;
+  }
+}
+
+.beer-stats {
+  padding-bottom: 20px;
+}
+
+.breaker {
+  border-top: 1px solid #999999;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.beer-location {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12pt;
 }

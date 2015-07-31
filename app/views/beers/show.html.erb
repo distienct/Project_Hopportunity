@@ -21,7 +21,7 @@
         <h4>Reviews: <%= @beer.ratings.length %> </h4>
       </div>
     </div>
-      
+
     <div class="col-md-2 uniques-and-user-checkins">
       <div class="user-checkins">
         <h4>Your Checkins: <%= @beer.checkins_by_user(current_user) %> </h4>
@@ -46,6 +46,21 @@
     </div>
   </div>
 
+  <div class="breaker"></div>
+
+  <div class="row find-beers">
+    <div class="col-md-3">
+      <h3>Find me at:</h3>
+    </div>
+    <% @beer.select_establishments.each do |e| %>
+      <div class="col-md-3 beer-location">
+        <span class="glyphicon glyphicon-map-marker"></span> <%= link_to e.name, establishment_path(e) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="breaker"></div>
+
   <div class="row checkins">
     <%= button_to "Check In!", beer_checkins_path(@beer), method: :post, :class => "checkin-button" %>
   </div>
@@ -59,4 +74,3 @@
     <%= render "ratings/rating" %>
   </div>
 </div>
-
